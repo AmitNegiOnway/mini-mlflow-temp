@@ -1,0 +1,18 @@
+aliases: []
+creation_timestamp: 1781337480136
+current_stage: None
+deployment_job_state: null
+description: This is a RandomForest model trained to predict Dataset.
+last_updated_timestamp: 1781337485265
+metrics: null
+model_id: null
+name: dvc-pipeline
+params: null
+run_id: null
+run_link: null
+source: mlflow-artifacts:/b825d73c8c8042f19db9cee635d992b4/models/m-7194198793da4e3e9d42a17bec7595cf/artifacts/MLmodel
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/b825d73c8c8042f19db9cee635d992b4/models/m-7194198793da4e3e9d42a17bec7595cf/artifacts/MLmodel
+user_id: null
+version: 2

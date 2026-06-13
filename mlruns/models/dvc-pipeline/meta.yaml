@@ -1,0 +1,8 @@
+aliases:
+  canary: '1'
+creation_timestamp: 1781337306278
+deployment_job_id: null
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1781337521148
+name: dvc-pipeline
