@@ -1,4 +1,4 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = C:\Users\ASUS\AppData\Local\Temp\amit-storage02
+    url = s3://amit-negi-onway005-bucket
