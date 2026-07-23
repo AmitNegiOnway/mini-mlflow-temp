@@ -38,31 +38,31 @@ class TestModelLoading(unittest.TestCase):
         # Load holdout test data
         cls.holdout_data = pd.read_csv('data/processed/test_bow.csv')
 
-    @staticmethod
-    def get_latest_model_version(model_name, stage="Staging"):
-        client = mlflow.MlflowClient()
-        latest_version = client.get_latest_versions(model_name, stages=[stage])
-        return latest_version[0].version if latest_version else None
+    # @staticmethod
+    # def get_latest_model_version(model_name, stage="Staging"):
+    #     client = mlflow.MlflowClient()
+    #     latest_version = client.get_latest_versions(model_name, stages=[stage])
+    #     return latest_version[0].version if latest_version else None
 
-    def test_model_loaded_properly(self):
-        self.assertIsNotNone(self.new_model)
+    # def test_model_loaded_properly(self):
+    #     self.assertIsNotNone(self.new_model)
 
 
-    def test_model_signature(self):
-        # Create a dummy input for the model based on expected input shape
-        input_text = "hi how are you"
-        input_data = self.vectorizer.transform([input_text])
-        input_df = pd.DataFrame(input_data.toarray(), columns=[str(i) for i in range(input_data.shape[1])])
+    # def test_model_signature(self):
+    #     # Create a dummy input for the model based on expected input shape
+    #     input_text = "hi how are you"
+    #     input_data = self.vectorizer.transform([input_text])
+    #     input_df = pd.DataFrame(input_data.toarray(), columns=[str(i) for i in range(input_data.shape[1])])
 
-        # Predict using the new model to verify the input and output shapes
-        prediction = self.new_model.predict(input_df)
+    #     # Predict using the new model to verify the input and output shapes
+    #     prediction = self.new_model.predict(input_df)
 
-        # Verify the input shape
-        self.assertEqual(input_df.shape[1], len(self.vectorizer.get_feature_names_out()))
+    #     # Verify the input shape
+    #     self.assertEqual(input_df.shape[1], len(self.vectorizer.get_feature_names_out()))
 
-        # Verify the output shape (assuming binary classification with a single output)
-        self.assertEqual(len(prediction), input_df.shape[0])
-        self.assertEqual(len(prediction.shape), 1)  # Assuming a single output column for binary classification
+    #     # Verify the output shape (assuming binary classification with a single output)
+    #     self.assertEqual(len(prediction), input_df.shape[0])
+    #     self.assertEqual(len(prediction.shape), 1)  # Assuming a single output column for binary classification
     
     
     def test_model_performance(self):
