@@ -30,6 +30,7 @@ fastapi==0.115.14
 Flask==3.1.1
 fonttools==4.58.5
 gitdb==4.0.12
+dvc[s3]==3.67.1
 GitPython==3.1.44
 google-auth==2.40.3
 gql==3.5.3
