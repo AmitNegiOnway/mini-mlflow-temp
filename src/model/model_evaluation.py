@@ -13,8 +13,21 @@ import os
 
 
 
-mlflow.set_tracking_uri('https://dagshub.com/amitnegionway/mini-mlflow-temp.mlflow')
-dagshub.init(repo_owner='amitnegionway', repo_name='mini-mlflow-temp', mlflow=True)
+#  "model_uri": "models:/m-91555b371a4e4b5f9939c556c75538d6" delete
+# Set up DagsHub credentials for MLflow tracking
+# its key-based authentication...
+
+dagshub_token=os.getenv("DAGSHUB_PAT")
+if not dagshub_token:
+    raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
+
+os.environ["MLFLOW_TRACKING_USERNAME"]=dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"]=dagshub_token
+
+dagshub_url="https://dagshub.com"
+repo_owner="amitnegionway"
+repo_name="mini-mlflow-temp"
+
 
 # logging configuration
 logger = logging.getLogger('model_evaluation')
