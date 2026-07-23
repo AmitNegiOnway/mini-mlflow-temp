@@ -19,9 +19,9 @@ class TestModelLoading(unittest.TestCase):
         os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
         os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
-        dagshub_url = "https://dagshub.com"
-        repo_owner = "amitnegionway"
-        repo_name = "mlops-mini-projects"
+        dagshub_url="https://dagshub.com"
+        repo_owner="amitnegionway"
+        repo_name="mini-mlflow-temp"
 
         # Set up MLflow tracking URI
         mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
@@ -93,4 +93,4 @@ class TestModelLoading(unittest.TestCase):
 
     
 if __name__ == "__main__":
-    unittest.main(
+    unittest.main()
