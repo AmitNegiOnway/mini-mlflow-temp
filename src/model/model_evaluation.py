@@ -118,6 +118,9 @@ def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
         raise
 
 def main():
+    mlflow.set_tracking_uri(
+    f"{dagshub_url}/{repo_owner}/{repo_name}.mlflow")
+
     mlflow.set_experiment("dvc-pipeline")
     with mlflow.start_run() as run:  # Start an MLflow run
         try:

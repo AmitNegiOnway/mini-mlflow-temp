@@ -23,6 +23,8 @@ os.environ["MLFLOW_TRACKING_PASSWORD"]=dagshub_token
 dagshub_url="https://dagshub.com"
 repo_owner="amitnegionway"
 repo_name="mini-mlflow-temp"
+
+mlflow.set_tracking_uri(f"{dagshub_url}/{repo_owner}/{repo_name}.mlflow")
 # logging configuration
 logger = logging.getLogger('model_registration')
 logger.setLevel('DEBUG')
