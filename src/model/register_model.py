@@ -77,7 +77,7 @@ def register_model(model_name: str, model_info: dict):
         )
         print(f"Staging alias now points to Version {model_version.version}")
         
-        logger.debug(f'Model {model_name} version {model_version.version} registered    and transitioned to Staging.')
+        logger.debug(f'Model {model_name} version {model_version.version} registered    and   transitioned to Staging.')
     except Exception as e:
         logger.error('Error during model registration: %s', e)
         raise
