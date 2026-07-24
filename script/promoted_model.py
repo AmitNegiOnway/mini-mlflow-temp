@@ -23,10 +23,10 @@ def promoted_model():
 
     # get the latest version in staging 
 
-    latest_version_staging=client.get_model_version_by_alias(model_name,alias=['staging'])[0].version
+    latest_version_staging=client.get_model_version_by_alias(model_name,alias='staging')[0].version
 
     # archive the current production model
-    champ_version=client.get_model_version_by_alias(model_name,alias=['champion'])
+    champ_version=client.get_model_version_by_alias(model_name,alias='champion')
 
     if champ_version:
       print(f"Current champion: Version {champ_version.version}")
