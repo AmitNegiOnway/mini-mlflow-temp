@@ -23,19 +23,16 @@ def promoted_model():
 
     # get the latest version in staging 
 
-    latest_version_staging=client.get_latest_versions(model_name,stages=['staging'])[0].version
+    latest_version_staging=client.get_model_version_by_alias(model_name,stages=['staging'])[0].version
 
     # archive the current production model
-    prod_version=client.get_latest_versions(model_name,stages=['champion'])
+    champ_version=client.get_model_version_by_alias(model_name,stages=['champion'])
 
-    for version in prod_version:
-        client.transition_model_version_stage(
-            name=model_name,
-            version=version.version,
-            stage='Archived'
-        )
-    # promted the new model to production 
-    client.transition_model_version_stage(
+    if champ_version:
+      print(f"Current champion: Version {champ_version.version}")
+
+    # promted the new model to champion 
+    client.set_registered_model_alias(
         name=model_name,
         version=latest_version_staging,
         stage="champion"
