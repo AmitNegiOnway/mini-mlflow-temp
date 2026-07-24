@@ -26,6 +26,7 @@ repo_name="mini-mlflow-temp"
 
 mlflow.set_tracking_uri(f"{dagshub_url}/{repo_owner}/{repo_name}.mlflow")
 # logging configuration
+
 logger = logging.getLogger('model_registration')
 logger.setLevel('DEBUG')
 
