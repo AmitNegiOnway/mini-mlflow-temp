@@ -23,7 +23,7 @@ def promoted_model():
 
     # get the latest version in staging 
 
-    latest_version_staging=client.get_latest_versions(model_name,stages=['champion'])[0].version
+    latest_version_staging=client.get_latest_versions(model_name,stages=['staging'])[0].version
 
     # archive the current production model
     prod_version=client.get_latest_versions(model_name,stages=['champion'])
@@ -38,7 +38,7 @@ def promoted_model():
     client.transition_model_version_stage(
         name=model_name,
         version=latest_version_staging,
-        stage="Production"
+        stage="champion"
     )
     print(f"Model version {latest_version_staging} promoted to Production")
 
