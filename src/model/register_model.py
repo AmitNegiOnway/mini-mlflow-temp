@@ -72,7 +72,7 @@ def register_model(model_name: str, model_info: dict):
 
         client.set_registered_model_alias(
             name=model_name,
-            alias="Staging",
+            alias="staging",
             version=model_version.version
         )
         
